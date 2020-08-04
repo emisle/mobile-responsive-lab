@@ -1,0 +1,119 @@
+html {
+    box-sizing: border-box
+   }
+   
+   /* The Universal Selector */
+   *, /* All elements*/
+   *::before, /* All ::before pseudo-elements */
+   *::after { /* All ::after pseudo-elements */
+    /* height & width will now include border & padding by default
+       but can be over-ridden as needed */
+    box-sizing: inherit;
+   }
+   
+   /* resets font size to be 62.5% of the user preference - 
+     in most browser configurations this will be 10px */
+   :root {
+    font-size: 62.5%
+   }
+   
+   body {
+    background-color: gray;
+    display: flex;
+   /* Use a system font, if none are available use an available sans-sarif   font */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      grid-template-columns: 1fr 2fr 2fr;
+      grid-template-rows: auto 1fr auto;
+      height: 100vh;
+      margin: 0;
+      justify-content: center;
+      align-items: center;
+      grid-template-areas: 
+        "nav nav nav"
+        "aside main main"
+        "footer footer footer";
+   }
+
+   nav1 {
+    font-size: 10px;
+    font-weight: bold;
+   }
+
+   nav2 {
+    font-size: 30px;
+    font-weight: bold;
+   }
+
+   nav3 {
+    font-size: 20px;
+    font-weight: bold;
+   }
+
+   nav4 {
+    font-size: 10px;
+    font-weight: bold;
+   }
+
+   nav5 {
+    font-size: 15px;
+   }
+
+   header {
+    grid-area: header;
+    background-color: #6b1200;
+  }
+  
+  footer {
+    background-color: #f98e71;
+    color: #3a001e;
+    grid-area: footer;
+  }
+  
+  aside {
+    background-color: #009ffb;
+    color: #3c4856;
+    grid-area: side;
+  }
+  
+  main {
+    grid-area: content;
+    background-color: #7bd1f3;
+    font-size: clamp(3.2rem, 6vw, 9rem);
+  }
+
+  .grid-cntr {
+    display: flex;
+    place-items: center;
+  }
+
+  header,
+  footer,
+  aside,
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+   @media only screen and(min-width: 1024px) {
+    header, 
+    footer, 
+    aside {
+        background-color: white;
+        color: whitesmoke;
+    } 
+  }
+
+  /* 768px is a common "breakpoint" width for tablets */
+  @media only screen and (min-width: 768px) {
+    body {
+      /* tablet - two column display */
+      grid-template-columns: 1fr 4fr;
+      grid-template-rows: 50px auto 30px;
+      grid-template-areas: 
+        "header header"
+        "side content"
+        "footer footer";
+    }
+  }
